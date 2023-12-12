@@ -2,34 +2,30 @@
 let currentDay = $("#currentDay")
 
 let todayDate = dayjs()
-//Display the current day at the top of the calender when a user opens the planner.
-currentDay = todayDate.format('dddd DD.MM.YYYY');
-console.log(dayjs())
+// //Display the current day at the top of the calender when a user opens the planner.
 
 
-
-
-
+currentDay.text(todayDate.format('dddd DD.MM.YYYY'));
 //Present timeblocks for standard business hours when the user scrolls down.
-// function timeBlockColor() {
-//     var hour = dayjs().hour();
-//     console.log(hour)
-
-//     $(".timeBlock").each(function() {
-//         var currHour = parseInt($(this).attr("id"));
-
-//         console.log(this); //each time-block
-
-//         if (currHour > hour) {
-//             $(this).addClass("future");
-//         } else if (currHour === hour) {
-//             $(this).addClass("present");
-//         } else {
-//             $(this).addClass("past");
-//         }
-//     })
-// };
 //Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+function timeBlockColor() {
+    var hour = dayjs().hour();
+
+    $(".time-block").each(function() {
+        var currHour = parseInt($(this).attr("id"));
+console.log(currHour)
+        console.log(this); //each time-block
+
+        if (currHour > hour) {
+            $(this).addClass("future");
+        } else if (currHour === hour) {
+            $(this).addClass("present");
+        } else {
+            $(this).addClass("past");
+        }
+    })
+};
+
 
 //Allow a user to enter an event when they click a timeblock
 
@@ -38,23 +34,18 @@ console.log(dayjs())
 
   // if nothing in localStorage, create a new object to track all task status arrays
 
-//Persist events between refreshes of a page
+// //Persist events between refreshes of a page
 
 var saveBtn = $(".saveBtn");
 
-/**
- * FUNCTIONS
- */
+// /**
+//  * FUNCTIONS
+//  */
 
-// current day is displayed at the top of the calendar
-
-// each time block is color-coded to indicate whether it is in the past, present, or future
-
-
-// WHEN I click the save button for that time block
+// // WHEN I click the save button for that time block
 saveBtn.on("click", function() {
 
-    // console.log(this); //save button
+     console.log(this); //save button
     var time = $(this).siblings(".hour").text();
     var plan = $(this).siblings(".plan").val();
 
@@ -62,16 +53,16 @@ saveBtn.on("click", function() {
     localStorage.setItem(time, plan);
 });
 
-// WHEN I refresh the page
-// THEN the saved events persist
+// // WHEN I refresh the page
+// // THEN the saved events persist
 function usePlanner() {
 
     $(".hour").each(function() {
         var currHour = $(this).text();
         var currPlan = localStorage.getItem(currHour);
 
-        // console.log(this);
-        // console.log(currHour);
+        console.log(this);
+        console.log(currHour);
 
         if(currPlan !== null) {
             $(this).siblings(".plan").val(currPlan);
@@ -79,9 +70,9 @@ function usePlanner() {
     });
 }
 
-/**
- * CALL FUNCTIONS
- */
+// /**
+//  * CALL FUNCTIONS
+//  */
 
 timeBlockColor();
 usePlanner();
@@ -121,3 +112,37 @@ usePlanner();
 //     auditTask(el);
 //   });
 // }, (1000 * 60) * 30);
+
+// $(document).ready(function() {
+//     var t = dayjs().format("dddd DD.MM.YYYY");
+//     let e = document.getElementById("currentDay");
+//     e.textContent = t;
+//     var a = dayjs().format("HH");
+//     // $("#clearFieldsBtn").click(function(t) {
+//     //     t.preventDefault,
+//     //     $("textarea").val(""),
+//     //     localStorage.clear()
+//     // }),
+//     $(".time-block").each(function() {
+//         var t = $(this).attr("id").split("-")[1];
+//         a == t ? ($(this).addClass("present"),
+//         $(this).children(".plan")) : a < t ? ($(this).removeClass("present"),
+//         $(this).addClass("future")) : t < a && ($(this).removeClass("future"),
+//         $(this).addClass("past"))
+//     }),
+//     $(".saveBtn").click(function(t) {
+//         t.preventDefault();
+//         var e = $(this).siblings(".time-block").val()
+//           , t = $(this).parents().attr("id").split("-")[1];
+//         localStorage.setItem(t, e)
+//     }),
+//     $("#hour-09 .time-block").val(localStorage.getItem("09")),
+//     $("#hour-10 .time-block").val(localStorage.getItem("10")),
+//     $("#hour-11 .time-block").val(localStorage.getItem("11")),
+//     $("#hour-12 .time-block").val(localStorage.getItem("12")),
+//     $("#hour-13 .time-block").val(localStorage.getItem("13")),
+//     $("#hour-14 .time-block").val(localStorage.getItem("14")),
+//     $("#hour-15 .time-block").val(localStorage.getItem("15")),
+//     $("#hour-16 .time-block").val(localStorage.getItem("16")),
+//     $("#hour-17 .time-block").val(localStorage.getItem("17"))
+// });
