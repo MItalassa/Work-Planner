@@ -15,10 +15,10 @@ console.log(dayjs())
 //     var hour = dayjs().hour();
 //     console.log(hour)
 
-//     $(".time-block").each(function() {
+//     $(".timeBlock").each(function() {
 //         var currHour = parseInt($(this).attr("id"));
 
-//         // console.log(this); //each time-block
+//         console.log(this); //each time-block
 
 //         if (currHour > hour) {
 //             $(this).addClass("future");
