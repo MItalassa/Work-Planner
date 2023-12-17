@@ -15,7 +15,7 @@ When the planner is opened, the current day is displayed at the top of the calen
 When the user scroll down, will find time block for each hour of a typical working day, from 9AM to 19PM.
 Each time block is color-coded as follow:
 Grey for a past task
-Blue for a present task
+Red for a present task
 Green for a future task
 The user will write on the text area the tasks for the day and when will click on save, it will save in local Storage.
 
