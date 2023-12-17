@@ -34,27 +34,36 @@ var saveBtn = $(".saveBtn");
 
 saveBtn.on("click", function() {
      //console.log(this);
-    var time = $(this).closest(".hour").text();
-    var description = $(this).closest(".description").val();
-    localStorage.setItem(time, description);
+    var time = $(this).parent().attr("id");
+    var description = $(this).closest(".row").find("textarea").val();
+    localStorage.setItem(time,      description);
 });
 
 // // WHEN I refresh the page
 // // THEN the saved events persist
-function usePlanner() {
+// function usePlanner() {
+// var timeBlockHours = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"];
 
-    $(".hour").each(function() {
-        var currentHour = $(this).text();
-        var currentPlan = localStorage.getItem(currentHour);
+//     $.each( timeBlockHours, function(index, hour) {
+//         // var currentHour = $(this).text();
+//         // var blockHour = currentHour.split(":")[0];
+//         var currentPlan = localStorage.getItem(hour);
+//             // console.log(currentHour);
+//             console.log(currentPlan);
+//             $(hour+ "textarea[name = ' Things to do']").val(currentPlan);
+//             console.log( $(hour+ "textarea[name = 'Things to do']"))
+//         // //console.log(this);
+//     //    console.log(hour)
 
-       // console.log(this);
-       
+//         // if(currentPlan !== null) {
+//         //     $(this).siblings(".plan").val(currentPlan);
+//         // }
+//     });
+// }
 
-        if(currentPlan !== null) {
-            $(this).siblings(".plan").val(currentPlan);
-        }
-    });
-}
+$("#18 textarea[name = 'Things to do']").val(localStorage.getItem("18"))
 
 colorCode();
-usePlanner();
+// $(document).ready(function(){
+//     usePlanner();
+// })
