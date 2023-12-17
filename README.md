@@ -1,4 +1,5 @@
 # Work-Planner
+<img src="./assets/images/Screenshot (3).png">
 URL to the repository: https://github.com/MItalassa/Work-Planner
 URL to the deployed website: https://mitalassa.github.io/Work-Planner/
 
@@ -17,3 +18,18 @@ Grey for a past task
 Blue for a present task
 Green for a future task
 The user will write on the text area the tasks for the day and when will click on save, it will save in local Storage.
+
+## Credits
+
+Website used as reference:
+https://day.js.org/docs/en/display/format
+https://getbootstrap.com/
+https://www.w3schools.com
+https://stackoverflow.com
+
+
+## License
+
+N/A
+
+---
