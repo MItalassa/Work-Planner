@@ -32,7 +32,7 @@ $(".time-block").each(function() {
 
 var saveBtn = $(".saveBtn");
 
-saveBtn.on("click", function() {
+saveBtn.on("submit", function() {
      //console.log(this);
     var time = $(this).parent().attr("id");
     var description = $(this).closest(".row").find("textarea").val();
@@ -61,7 +61,17 @@ saveBtn.on("click", function() {
 //     });
 // }
 
-$("#18 textarea[name = 'Things to do']").val(localStorage.getItem("18"))
+$("#9 textarea[name = 'Things to do']").val(localStorage.getItem("9"));
+$("#10 textarea[name = 'Things to do']").val(localStorage.getItem("10"));
+$("#11 textarea[name = 'Things to do']").val(localStorage.getItem("11"));
+$("#12 textarea[name = 'Things to do']").val(localStorage.getItem("12"));
+$("#13 textarea[name = 'Things to do']").val(localStorage.getItem("13"));
+$("#14 textarea[name = 'Things to do']").val(localStorage.getItem("14"));
+$("#15 textarea[name = 'Things to do']").val(localStorage.getItem("15"));
+$("#16 textarea[name = 'Things to do']").val(localStorage.getItem("16"));
+$("#17 textarea[name = 'Things to do']").val(localStorage.getItem("17"));
+$("#18 textarea[name = 'Things to do']").val(localStorage.getItem("18"));
+$("#19 textarea[name = 'Things to do']").val(localStorage.getItem("19"));
 
 colorCode();
 // $(document).ready(function(){
